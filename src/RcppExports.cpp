@@ -10,6 +10,25 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// compute_closest_wgps_cluster_helper
+IntegerVector compute_closest_wgps_cluster_helper(NumericVector a, NumericVector b, NumericVector cd, NumericVector e, NumericVector f, double thresh_cluster, double thresh_min, double sc, int nthread);
+RcppExport SEXP _CausalGPS_compute_closest_wgps_cluster_helper(SEXP aSEXP, SEXP bSEXP, SEXP cdSEXP, SEXP eSEXP, SEXP fSEXP, SEXP thresh_clusterSEXP, SEXP thresh_minSEXP, SEXP scSEXP, SEXP nthreadSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type a(aSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type b(bSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type cd(cdSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type e(eSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type f(fSEXP);
+    Rcpp::traits::input_parameter< double >::type thresh_cluster(thresh_clusterSEXP);
+    Rcpp::traits::input_parameter< double >::type thresh_min(thresh_minSEXP);
+    Rcpp::traits::input_parameter< double >::type sc(scSEXP);
+    Rcpp::traits::input_parameter< int >::type nthread(nthreadSEXP);
+    rcpp_result_gen = Rcpp::wrap(compute_closest_wgps_cluster_helper(a, b, cd, e, f, thresh_cluster, thresh_min, sc, nthread));
+    return rcpp_result_gen;
+END_RCPP
+}
 // compute_closest_wgps_helper
 IntegerVector compute_closest_wgps_helper(NumericVector a, NumericVector b, NumericVector cd, double sc, int nthread);
 RcppExport SEXP _CausalGPS_compute_closest_wgps_helper(SEXP aSEXP, SEXP bSEXP, SEXP cdSEXP, SEXP scSEXP, SEXP nthreadSEXP) {
@@ -27,6 +46,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_CausalGPS_compute_closest_wgps_cluster_helper", (DL_FUNC) &_CausalGPS_compute_closest_wgps_cluster_helper, 9},
     {"_CausalGPS_compute_closest_wgps_helper", (DL_FUNC) &_CausalGPS_compute_closest_wgps_helper, 5},
     {NULL, NULL, 0}
 };
